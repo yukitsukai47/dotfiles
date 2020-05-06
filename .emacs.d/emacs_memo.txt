@@ -1,0 +1,12 @@
+git clone URL:yukitsukai47
+git clone https://github.com/oneKelvinSmith/monokai-emacs.git
+mv ./monokai-emacs/monokai-theme.el ./
+
+auto-completeの設定
+M-x package-list-package
+からauto-configをインストール
+
+python3の環境設定
+M-x package-refresh-contents RET
+M-x package-install RET elpy RET
+pip install virtualenv

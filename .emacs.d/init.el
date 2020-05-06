@@ -1,4 +1,6 @@
-;; package管理
+; ---------------
+; package
+; ---------------
 (package-initialize)
 (setq package-archives
       '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -26,65 +28,75 @@
 ;; window operation
 (global-set-key "\C-t" 'other-window)
 
-; -----------------
+; ----------------
 ; preferences
-; -----------------
-;;This buffer〜で始まる文章を表示しない
+; ----------------
+;; This buffer〜delete!!
 (setq initial-scratch-message nil)
-;括弧を自動で補完する
+;; ()auto-complete
 (electric-pair-mode 1)
-;; tabにスペース４つを利用
+;; tab4
 (setq-default tab-width 4 indent-tabs-mode nil)
-;; デフォルトの起動時のメッセージを表示しない
+;; Do not display a message at startup
 (setq inhibit-startup-message t)
-;; 列の番号
+;; column-number
 (column-number-mode t)
-;; 行番号の表示
+;; line-number
 (global-linum-mode t)
-;; 1行ごとの改ページ
+;; One line break
 (setq scroll-conservatively 1)
-;; 対応する括弧を光らせる
+;; light of ()
 (show-paren-mode 1)
-;; メニューバーの非表示
+;; Hiding the menu bar
 (menu-bar-mode -1)
-
+;; clipboard share
+(setq x-select-enable-clipboard t)
 ;; auto-complete
 (require 'auto-complete-config)
 (global-auto-complete-mode 0.5)
 
-; monokai-theme----
+; monokai-theme ------------
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
     ("4e839b24f87c529e837535d0a7880f40ac3867b6e3e73a2cf2bb40bab53d4658" default)))
  '(package-selected-packages
    (quote
-    (auto-virtualenv elpy undo-tree leaf-keywords hydra auto-complete))))
+    (ac-php auto-virtualenv elpy undo-tree leaf-keywords hydra auto-complete))))
 (custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
  )
 (load-theme 'monokai t)
-; ------------------
+; -------------------------
 
-;python編集時に警告を出さない-----------
+; No warning ---------------------------
 (setq python-indent-guess-indent-offset t)  
 (setq python-indent-guess-indent-offset-verbose nil)
 ;---------------------------------------
 
-
-;*.~ とかのバックアップファイルを作らない
+; No backup files ~
 (setq make-backup-files nil)
-; .#* とかのバックアップファイルを作らない
+; No backup files .#*
 (setq auto-save-default nil)
 
-
+; elpy setup---------------------------
  (when (and (require 'python nil t) (require 'elpy nil t))
    (elpy-enable))
+; --------------------------------------
+
+
+;; set-goal-column
+(put 'set-goal-column 'disabled nil)
+
+; ac-php--------------------------------
+(require 'cl)
+(add-hook 'php-mode-hook
+            '(lambda ()
+               (auto-complete-mode t)
+               (require 'ac-php)
+               (setq ac-sources '(ac-source-php ac-source-abbrev ac-source-dictionary ac-source-words-in-same-mode-buffers))
+               (yas-global-mode 1)
+               (define-key php-mode-map  (kbd "C-]") 'ac-php-find-symbol-at-point)   ;goto define
+               (define-key php-mode-map  (kbd "C-t") 'ac-php-location-stack-back   ) ;go back
+               ))
+; --------------------------------------
