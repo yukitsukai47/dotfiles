@@ -6,15 +6,18 @@
       '(("gnu" . "http://elpa.gnu.org/packages/")
         ("melpa" . "http://melpa.org/packages/")
         ("org" . "http://orgmode.org/elpa/")))
+; -------------------------
+
 
 ; ---------------
 ; language
 ; ---------------
-;; set language as Japanese
+;; 日本語設定
 (set-language-environment 'Japanese)
-;; coding UTF8
+;; 文字コード指定
 (set-language-environment  'utf-8)
 (prefer-coding-system 'utf-8)
+; -------------------------
 
 ; ----------------
 ; key bind
@@ -23,37 +26,57 @@
 (global-set-key "\C-h" 'delete-backward-char)
 ;; help
 (global-set-key "\C-c\C-h" 'help-command)
-;; comment out
-(global-set-key "\C-c;" 'comment-dwim)
+;; 自動的にコメントアウト
+(global-set-key "\C-c → ;" 'comment-dwim)
 ;; window operation
 (global-set-key "\C-t" 'other-window)
+;; undo-treeを読み込む(M-/をredoに設定)
+(require 'undo-tree)
+(global-undo-tree-mode t)
+(global-set-key (kbd "M-/") 'undo-tree-redo)
+; -------------------------
+
 
 ; ----------------
 ; preferences
 ; ----------------
-;; This buffer〜delete!!
+;; This bufferで始まる文章を表示しない
 (setq initial-scratch-message nil)
-;; ()auto-complete
+;; ()のauto-complete
 (electric-pair-mode 1)
-;; tab4
+;; tabをスペース4文字
 (setq-default tab-width 4 indent-tabs-mode nil)
-;; Do not display a message at startup
+;; スタートアップメッセージを表示させない
 (setq inhibit-startup-message t)
-;; column-number
+;; カラム,ライン,時間情報の表示
 (column-number-mode t)
-;; line-number
 (global-linum-mode t)
-;; One line break
+(display-time)
+;; カーソル移動によるスクロールを1行に設定(自然な挙動に変更)
 (setq scroll-conservatively 1)
-;; light of ()
+;; カッコの中身をハイライトする
 (show-paren-mode 1)
-;; Hiding the menu bar
+(setq show-paren-delay 0)
+(setq show-paren-style 'expression)
+(set-face-attribute 'show-paren-match nil
+      :background 'unspecified)
+(set-face-underline-p 'show-paren-match "red")
+;; メニューバーを非表示
 (menu-bar-mode -1)
-;; clipboard share
+;; クリップボードの共有
 (setq x-select-enable-clipboard t)
-;; auto-complete
+;; auto-completeパッケージの設定
+(require 'auto-complete)
 (require 'auto-complete-config)
-(global-auto-complete-mode 0.5)
+; Pythonファイル編集時に警告を出さない
+(setq python-indent-guess-indent-offset t)
+(setq python-indent-guess-indent-offset-verbose nil)
+; 「*.~」などのバックアップファイルを作らない
+(setq make-backup-files nil)
+; 「.#*」などのバックアップファイルを作らない
+(setq auto-save-default nil)
+; -------------------------
+
 
 ; monokai-theme ------------
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
@@ -69,26 +92,14 @@
 (load-theme 'monokai t)
 ; -------------------------
 
-; No warning ---------------------------
-(setq python-indent-guess-indent-offset t)  
-(setq python-indent-guess-indent-offset-verbose nil)
-;---------------------------------------
 
-; No backup files ~
-(setq make-backup-files nil)
-; No backup files .#*
-(setq auto-save-default nil)
-
-; elpy setup---------------------------
+; -Python- elpyのセットアップ(emacsがelpy-modeになるようにするため)-----
  (when (and (require 'python nil t) (require 'elpy nil t))
    (elpy-enable))
-; --------------------------------------
+; -----------------------------------------------------------------
 
 
-;; set-goal-column
-(put 'set-goal-column 'disabled nil)
-
-; ac-php--------------------------------
+; -PHP- ac-phpのセットアップ--------------
 (require 'cl)
 (add-hook 'php-mode-hook
             '(lambda ()
