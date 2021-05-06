@@ -34,6 +34,21 @@
 (require 'undo-tree)
 (global-undo-tree-mode t)
 (global-set-key (kbd "M-/") 'undo-tree-redo)
+
+
+;; tmuxのウィンドウ操作
+(global-unset-key "\C-q") 
+(global-set-key (kbd "C-q -")  'split-window-vertically)
+(global-set-key (kbd "C-q |")  'split-window-horizontally)
+
+(global-set-key (kbd "C-q <left>")  'windmove-left)
+(global-set-key (kbd "C-q <down>")  'windmove-down)
+(global-set-key (kbd "C-q <up>")    'windmove-up)
+(global-set-key (kbd "C-q <right>") 'windmove-right)
+
+(global-set-key (kbd "C-q c")  'make-frame-command)
+(global-set-key (kbd "C-q x")  'delete-frame)
+(global-set-key (kbd "C-q n")  'other-frame)
 ; -------------------------
 
 
