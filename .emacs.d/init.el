@@ -22,33 +22,32 @@
 ; ----------------
 ; key bind
 ; ----------------
+;; C-qの解放
+(global-unset-key "\C-q") 
+
 ;; backspeace
-(global-set-key "\C-h" 'delete-backward-char)
+(global-set-key (kbd "C-h") 'delete-backward-char)
 ;; help
-(global-set-key "\C-c\C-h" 'help-command)
+(global-set-key (kbd "C-c C-h") 'help-command)
 ;; 自動的にコメントアウト
-(global-set-key "\C-c → ;" 'comment-dwim)
-;; window operation
-(global-set-key "\C-t" 'other-window)
+(global-set-key (kbd "C-q ;")  'comment-dwim)
 ;; undo-treeを読み込む(M-/をredoに設定)
 (require 'undo-tree)
 (global-undo-tree-mode t)
 (global-set-key (kbd "M-/") 'undo-tree-redo)
 
-
 ;; tmuxのウィンドウ操作
-(global-unset-key "\C-q") 
+;;; ウィンドウ操作
 (global-set-key (kbd "C-q -")  'split-window-vertically)
 (global-set-key (kbd "C-q |")  'split-window-horizontally)
-
 (global-set-key (kbd "C-q <left>")  'windmove-left)
 (global-set-key (kbd "C-q <down>")  'windmove-down)
 (global-set-key (kbd "C-q <up>")    'windmove-up)
 (global-set-key (kbd "C-q <right>") 'windmove-right)
-
+;;; 新規ウィンドウの作成・操作・削除
 (global-set-key (kbd "C-q c")  'make-frame-command)
-(global-set-key (kbd "C-q x")  'delete-frame)
 (global-set-key (kbd "C-q n")  'other-frame)
+(global-set-key (kbd "C-q x")  'delete-frame)
 ; -------------------------
 
 
