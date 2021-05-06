@@ -23,7 +23,8 @@
 ; key bind
 ; ----------------
 ;; C-qの解放
-(global-unset-key "\C-q")
+(global-unset-key "\C-q") 
+(global-set-key (kbd "C-x C-f") 'find-file)
 ;; WindowsとLinuxで互換性を持たせるためのfine-file
 (global-set-key (kbd "C-x C-S-f") 'find-file)
 ;; backspeace
@@ -41,10 +42,10 @@
 ;;; ウィンドウ操作
 (global-set-key (kbd "C-q -")  'split-window-vertically)
 (global-set-key (kbd "C-q |")  'split-window-horizontally)
-(global-set-key (kbd "C-q C-b")  'windmove-left)
-(global-set-key (kbd "C-q C-n")  'windmove-down)
-(global-set-key (kbd "C-q C-p")    'windmove-up)
-(global-set-key (kbd "C-q C-f") 'windmove-right)
+(global-set-key (kbd "C-q <left>")  'windmove-left)
+(global-set-key (kbd "C-q <down>")  'windmove-down)
+(global-set-key (kbd "C-q <up>")    'windmove-up)
+(global-set-key (kbd "C-q <right>") 'windmove-right)
 ;;; 新規ウィンドウの作成・操作・削除
 (global-set-key (kbd "C-q c")  'make-frame-command)
 (global-set-key (kbd "C-q n")  'other-frame)
