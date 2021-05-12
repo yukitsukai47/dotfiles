@@ -4,9 +4,7 @@ mv ./monokai-emacs/monokai-theme.el ./
 
 auto-completeの設定
 M-x package-list-package
-からauto-configをインストール
+からauto-completeをインストール
 
-python3の環境設定
-M-x package-refresh-contents RET
-M-x package-install RET elpy RET
-pip install virtualenv
+package-refresh-packages
+package install RET monokai-pro-theme
