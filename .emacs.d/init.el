@@ -42,6 +42,7 @@
 ;;; ウィンドウ操作
 (global-set-key (kbd "C-q -")  'split-window-vertically)
 (global-set-key (kbd "C-q |")  'split-window-horizontally)
+(global-set-key (kbd "C-q x")  'delete-window)
 (global-set-key (kbd "C-q C-b")  'windmove-left)
 (global-set-key (kbd "C-q C-n")  'windmove-down)
 (global-set-key (kbd "C-q C-p")    'windmove-up)
@@ -49,7 +50,6 @@
 ;;; 新規ウィンドウの作成・操作・削除
 (global-set-key (kbd "C-q c")  'make-frame-command)
 (global-set-key (kbd "C-q n")  'other-frame)
-(global-set-key (kbd "C-q x")  'delete-frame)
 ; -------------------------
 
 
