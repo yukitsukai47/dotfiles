@@ -17,6 +17,9 @@
 
 (column-number-mode t)
 (global-linum-mode t)
+(set-face-attribute 'linum nil
+            :foreground "yellow"
+            :height 0.9)
 (display-time)
 (setq initial-scratch-message nil)
 (setq scroll-conservatively 1)
