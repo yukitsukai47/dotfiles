@@ -20,7 +20,7 @@
 (column-number-mode t)
 (global-linum-mode t)
 (set-face-attribute 'linum nil
-            :foreground "yellow"
+            :foreground "LightYellow"
             :height 0.9)
 (display-time)
 (setq initial-scratch-message nil)
@@ -33,15 +33,15 @@
 
 (set-face-foreground 'default "white")
 (set-face-background 'default "black")
-(set-face-foreground 'font-lock-type-face "green")
+(set-face-foreground 'font-lock-type-face "green1")
 (set-face-foreground 'font-lock-variable-name-face "white")
-(set-face-foreground 'font-lock-function-name-face "yellow")
-(set-face-foreground 'font-lock-builtin-face "magenta")
+(set-face-foreground 'font-lock-function-name-face "yellow1")
+(set-face-foreground 'font-lock-builtin-face "magenta1")
 (set-face-foreground 'font-lock-keyword-face "cyan")
-(set-face-foreground 'font-lock-string-face "red")
-(set-face-foreground 'font-lock-comment-face "green")
-(set-face-foreground 'font-lock-constant-face "cyan")
-(set-face-foreground 'font-lock-warning-face "violet")
+(set-face-foreground 'font-lock-string-face "red1")
+(set-face-foreground 'font-lock-comment-face "green1")
+(set-face-foreground 'font-lock-constant-face "cyan1")
+(set-face-foreground 'font-lock-warning-face "violet1")
 (show-paren-mode t)
 (set-face-background 'show-paren-match nil)
 (set-face-attribute 'show-paren-match nil
