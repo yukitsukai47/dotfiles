@@ -2,6 +2,7 @@
 (set-language-environment  'utf-8)
 (prefer-coding-system 'utf-8)
 
+(global-unset-key "\C-q")
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-c C-h") 'help-command)
 
