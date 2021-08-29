@@ -4,22 +4,35 @@
 
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-c C-h") 'help-command)
+
+(global-set-key (kbd "C-q -")  'split-window-vertically)
+(global-set-key (kbd "C-q |")  'split-window-horizontally)
+(global-set-key (kbd "C-q x")  'delete-window)
+(global-set-key (kbd "C-q c")  'make-frame-command)
+(global-set-key (kbd "C-q n")  'other-frame)
+(global-set-key (kbd "C-q C-b")  'windmove-left)
+(global-set-key (kbd "C-q C-n")  'windmove-down)
+(global-set-key (kbd "C-q C-p")  'windmove-up)
+(global-set-key (kbd "C-q C-f") 'windmove-right)
 (global-set-key "\M-n" (kbd "C-u 5 C-n"))
 (global-set-key "\M-p" (kbd "C-u 5 C-p"))
 
+(menu-bar-mode -1)
+(setq initial-scratch-message nil)
+(setq inhibit-startup-message t)
+(setq scroll-conservatively 1)
+(setq default-tab-width 4)
+(setq make-backup-files nil)
+(setq auto-save-default nil)
 (column-number-mode t)
 (global-linum-mode t)
 (set-face-attribute 'linum nil
             :foreground "yellow"
             :height 0.9)
-(display-time)
-(setq initial-scratch-message nil)
-(setq scroll-conservatively 1)
-(setq inhibit-startup-message t)
-(setq default-tab-width 4)
-(setq make-backup-files nil)
-(setq auto-save-default nil)
-(menu-bar-mode -1)
+(show-paren-mode t)
+(set-face-background 'show-paren-match nil)
+(set-face-attribute 'show-paren-match nil
+                    :inherit 'highlight)
 
 (set-face-foreground 'default "white")
 (set-face-background 'default "black")
@@ -32,7 +45,3 @@
 (set-face-foreground 'font-lock-comment-face "green")
 (set-face-foreground 'font-lock-constant-face "cyan")
 (set-face-foreground 'font-lock-warning-face "violet")
-(show-paren-mode t)
-(set-face-background 'show-paren-match nil)
-(set-face-attribute 'show-paren-match nil
-                    :inherit 'highlight)
