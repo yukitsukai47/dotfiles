@@ -7,6 +7,7 @@ GroupAdd, exclusion, ahk_exe emacs.exe
 GroupAdd, exclusion, ahk_exe Code.exe
 GroupAdd, exclusion, ahk_exe kali.exe
 GroupAdd, exclusion, ahk_exe ubuntu2004.exe
+GroupAdd, exclusion, ahk_exe WindowsTerminal.exe
 
 #IfWinNotActive ahk_group exclusion
 
