@@ -109,7 +109,7 @@
 	  )
 
 (when (eq system-type 'gnu/linux)
-  (defun copy-from-ubuntu (text &optional push)
+  (defun copy-from-linux (text &optional push)
     (interactive)
     (if (display-graphic-p)
 	(progn
@@ -123,7 +123,7 @@
 	    (deactivate-mark))
 	(message "No region active; can't yank to clipboard!")))
     )
-  (defun paste-to-ubuntu ()
+  (defun paste-to-linux ()
     (interactive)
     (if (display-graphic-p)
 	(progn
@@ -133,6 +133,6 @@
       (insert (shell-command-to-string "xsel -o -b"))
       )
     )
-  (setq interprogram-cut-function 'copy-from-ubuntu)
-  (setq interprogram-paste-function 'paste-to-ubuntu)
+  (setq interprogram-cut-function 'copy-from-linux)
+  (setq interprogram-paste-function 'paste-to-linux)
   )
