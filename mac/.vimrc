@@ -15,7 +15,7 @@ set noswapfile
 set autoread
 set hidden
 set showcmd
-set clipboard=unnamed,autoselect
+set clipboard=unnamedplus,autoselect
 set virtualedit=onemore
 set laststatus=2
 
