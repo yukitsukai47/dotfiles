@@ -24,6 +24,7 @@ nnoremap <C-j> 5j
 noremap <C-k> 5k
 highlight Comment ctermfg=green
 
+" wsl-copy,paste
 let s:clip = '/mnt/c/Windows/System32/clip.exe'
 if executable(s:clip)
     augroup WSLYank
