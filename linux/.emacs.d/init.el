@@ -18,13 +18,15 @@
 (global-set-key "\M-n" (kbd "C-u 3 C-n"))
 (global-set-key "\M-p" (kbd "C-u 3 C-p"))
 
-(menu-bar-mode -1)
 (setq initial-scratch-message nil)
 (setq inhibit-startup-message t)
 (setq scroll-conservatively 1)
-(setq default-tab-width 4)
 (setq make-backup-files nil)
 (setq auto-save-default nil)
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode t)
+; (global-whitespace-mode 1)
+(menu-bar-mode -1)
 (column-number-mode t)
 (global-linum-mode t)
 (set-face-attribute 'linum nil
@@ -89,3 +91,40 @@
   (setq interprogram-cut-function 'copy-from-linux)
   (setq interprogram-paste-function 'paste-to-linux)
   )
+
+; package
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/"))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages '(counsel flycheck elpy)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+(package-initialize)
+; elpy
+(elpy-enable)
+; company
+(global-company-mode)
+; flycheck
+(global-flycheck-mode)
+(setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
+; yasnippet
+(yas-global-mode 1)
+; ivy
+(ivy-mode 1)
+; counsel
+(global-set-key (kbd "C-s") 'swiper-isearch)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "M-y") 'counsel-yank-pop)
+(global-set-key (kbd "C-x b") 'ivy-switch-buffer)
+(global-set-key (kbd "C-c v") 'ivy-push-view)
+(global-set-key (kbd "C-c V") 'ivy-pop-view)
