@@ -25,7 +25,6 @@
 (setq auto-save-default nil)
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode t)
-; (global-whitespace-mode 1)
 (menu-bar-mode -1)
 (column-number-mode t)
 (global-linum-mode t)
@@ -80,7 +79,7 @@
     )
   (defun paste-to-linux ()
     (interactive)
-    (if (display-graphic-p)
+	(if (display-graphic-p)
 	(progn
 	  (clipboard-yank)
 	  (message "graphics active")
@@ -109,15 +108,15 @@
  ;; If there is more than one, they won't work right.
  )
 (package-initialize)
+
 ; elpy
+; Company,highlight-indentation,pyvenv,yasnippet,s
 (elpy-enable)
 ; company
-(global-company-mode)
+(add-hook 'after-init-hook 'global-company-mode)
 ; flycheck
 (global-flycheck-mode)
 (setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
-; yasnippet
-(yas-global-mode 1)
 ; ivy
 (ivy-mode 1)
 ; counsel
