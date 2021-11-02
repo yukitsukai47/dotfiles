@@ -113,6 +113,7 @@
 ; Company,highlight-indentation,pyvenv,yasnippet,s
 (elpy-enable)
 (setq elpy-rpc-virtualenv-path 'default)
+(setq elpy-rpc-python-command "python3")
 ; company
 (add-hook 'after-init-hook 'global-company-mode)
 ; flycheck
