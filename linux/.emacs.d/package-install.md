@@ -28,7 +28,6 @@ swiper-0.13.4
 ivy-0.13.4
 ```
 
-
 # elpy settings
 ```
 M-x elpy-config
@@ -37,6 +36,10 @@ M-x elpy-config
 (自動インストール)elpy is installing the RPC...
 or 
 (手動再インストール)elpy-rpc-reinstall-virtualenv
+```
+venvが使えない場合：
+```
+sudo apt install virtualenv
 ```
 ## jedi0.17.0
 最新版jedi0.18.0はemacs27と相性が悪いため,0.17.0を使用する  
