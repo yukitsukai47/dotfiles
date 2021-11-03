@@ -18,7 +18,7 @@ epl-0.9
 flycheck-31
 dash-2.19.1
 pkg-info-0.6
-```
+n```
 
 # counsel
 dependency
@@ -46,5 +46,6 @@ sudo apt install virtualenv
 下記コマンドでインストールされるのはjedi0.17.2
 ```
 source .emacs.d/elpy/rpc-venv/bin/activate
-pip3 install jedi~=0.17.0
+(rpc-venv)pip3 install jedi~=0.17.0
+(rpc-venv)pip3 install autopep8 yapf black flake8
 ```

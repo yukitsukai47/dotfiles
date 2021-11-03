@@ -15,8 +15,8 @@
 (global-set-key (kbd "C-q C-n")  'windmove-down)
 (global-set-key (kbd "C-q C-p")  'windmove-up)
 (global-set-key (kbd "C-q C-f") 'windmove-right)
-(global-set-key "\M-n" (kbd "C-u 3 C-n"))
-(global-set-key "\M-p" (kbd "C-u 3 C-p"))
+(global-set-key "\M-n" (kbd "C-u 4 C-n"))
+(global-set-key "\M-p" (kbd "C-u 4 C-p"))
 
 (setq initial-scratch-message nil)
 (setq inhibit-startup-message t)
@@ -100,7 +100,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(counsel flycheck elpy)))
+ '(package-selected-packages '(markdown-mode counsel flycheck elpy)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -113,7 +113,7 @@
 (elpy-enable)
 ;; virtualenv setting
 (setq elpy-rpc-virtualenv-path 'default)
-(setq elpy-rpc-python-command "python3")
+(setq elpy-rpc-python-command "/usr/bin/python3")
 ; company
 (add-hook 'after-init-hook 'global-company-mode)
 ; flycheck
