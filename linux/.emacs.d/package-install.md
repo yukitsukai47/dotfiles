@@ -18,7 +18,7 @@ epl-0.9
 flycheck-31
 dash-2.19.1
 pkg-info-0.6
-n```
+```
 
 # counsel
 dependency
