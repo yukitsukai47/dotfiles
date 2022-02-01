@@ -1,9 +1,0 @@
-auto-completeの設定
-M-x package-list-package
-package-refresh-packages
-
-package install RET auto-complete
-package install RET monokai-pro-theme
-(load-theme 'monokai-pro t)を追記
-package install RET undo-tree
-package install nhexl-mode
