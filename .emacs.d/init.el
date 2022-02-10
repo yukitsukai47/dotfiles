@@ -123,6 +123,7 @@
 ;; virtualenv setting
 (setq elpy-rpc-virtualenv-path 'default)
 (setq elpy-rpc-python-command "/usr/bin/python3")
+(flycheck-python-flake8-executable . "flake8")
 ; company
 (add-hook 'after-init-hook 'global-company-mode)
 ; flycheck
