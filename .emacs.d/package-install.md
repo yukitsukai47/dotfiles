@@ -1,15 +1,4 @@
 M-x package-install
-# elpy
-dependency
-```
-archives
-pyvenv-1.21
-company-0.9.13
-s-1.12.0
-elpy-1.35.0
-yasnippet-0.14.0
-highlight-indentation-0.7.0
-```
 
 # flycheck
 dependency
@@ -26,6 +15,22 @@ dependency
 counsel-0.13.4
 swiper-0.13.4
 ivy-0.13.4
+```
+# company
+dependency
+```
+```
+
+# elpy
+dependency
+```
+archives
+pyvenv-1.21
+company-0.9.13
+s-1.12.0
+elpy-1.35.0
+yasnippet-0.14.0
+highlight-indentation-0.7.0
 ```
 
 # elpy settings
