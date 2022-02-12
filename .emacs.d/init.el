@@ -4,8 +4,8 @@
 
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-c C-h") 'help-command)
-(global-set-key "\M-n" (kbd "C-u 4 C-n"))
-(global-set-key "\M-p" (kbd "C-u 4 C-p"))
+;(global-set-key "\M-n" (kbd "C-u 4 C-n"))
+;(global-set-key "\M-p" (kbd "C-u 4 C-p"))
 
 (setq initial-scratch-message nil)
 (setq inhibit-startup-message t)
@@ -109,7 +109,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(markdown-mode counsel flycheck elpy)))
+ '(package-selected-packages '(markdown-mode flycheck counsel company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -118,17 +118,10 @@
  )
 (package-initialize)
 
-; elpy
-(elpy-enable)
-;; virtualenv setting
-(setq elpy-rpc-virtualenv-path 'default)
-(setq elpy-rpc-python-command "/usr/bin/python3")
-(flycheck-python-flake8-executable . "flake8")
 ; company
-(add-hook 'after-init-hook 'global-company-mode)
+(global-company-mode)
 ; flycheck
 (global-flycheck-mode)
-(setq-default flycheck-disabled-checkers '(emacs-lisp-checkdoc))
 ; ivy
 (ivy-mode 1)
 ; counsel
