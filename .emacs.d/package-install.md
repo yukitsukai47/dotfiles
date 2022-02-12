@@ -21,7 +21,7 @@ dependency
 ```
 ```
 
-# elpy
+# elpy(option)
 dependency
 ```
 archives
@@ -33,7 +33,7 @@ yasnippet-0.14.0
 highlight-indentation-0.7.0
 ```
 
-# elpy settings
+## elpy settings
 ```
 M-x elpy-config
 ```

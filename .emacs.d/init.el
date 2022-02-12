@@ -4,8 +4,8 @@
 
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-c C-h") 'help-command)
-;(global-set-key "\M-n" (kbd "C-u 4 C-n"))
-;(global-set-key "\M-p" (kbd "C-u 4 C-p"))
+(global-set-key "\M-n" (kbd "C-u 4 C-n"))
+(global-set-key "\M-p" (kbd "C-u 4 C-p"))
 
 (setq initial-scratch-message nil)
 (setq inhibit-startup-message t)
@@ -120,6 +120,11 @@
 
 ; company
 (global-company-mode)
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
+(define-key company-active-map [tab] 'company-complete-selection)
+(define-key company-active-map (kbd "C-h") nil)
+(define-key company-active-map (kbd "C-S-h") 'company-show-doc-buffer)
 ; flycheck
 (global-flycheck-mode)
 ; ivy
