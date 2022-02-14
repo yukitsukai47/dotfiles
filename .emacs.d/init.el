@@ -109,7 +109,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(markdown-mode flycheck counsel company)))
+ '(package-selected-packages '(undo-tree markdown-mode flycheck counsel company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -118,17 +118,12 @@
  )
 (package-initialize)
 
-; company
-(global-company-mode)
-(define-key company-active-map (kbd "C-n") 'company-select-next)
-(define-key company-active-map (kbd "C-p") 'company-select-previous)
-(define-key company-active-map [tab] 'company-complete-selection)
-(define-key company-active-map (kbd "C-h") nil)
-(define-key company-active-map (kbd "C-S-h") 'company-show-doc-buffer)
-; flycheck
-(global-flycheck-mode)
 ; ivy
 (ivy-mode 1)
+
+; flycheck
+(global-flycheck-mode)
+
 ; counsel
 (global-set-key (kbd "C-s") 'swiper-isearch)
 (global-set-key (kbd "M-x") 'counsel-M-x)
@@ -137,3 +132,18 @@
 (global-set-key (kbd "C-x b") 'ivy-switch-buffer)
 (global-set-key (kbd "C-c v") 'ivy-push-view)
 (global-set-key (kbd "C-c V") 'ivy-pop-view)
+
+; company
+(global-company-mode)
+(global-set-key (kbd "C-l") 'company-complete)
+(define-key company-active-map (kbd "M-n") 'nil)
+(define-key company-active-map (kbd "M-p") 'nil)
+(define-key company-active-map (kbd "C-n") 'company-select-next)
+(define-key company-active-map (kbd "C-p") 'company-select-previous)
+(define-key company-active-map [tab] 'company-complete-selection)
+(define-key company-active-map (kbd "C-h") nil)
+(define-key company-active-map (kbd "C-S-h") 'company-show-doc-buffer)
+
+; undo-tree
+(global-undo-tree-mode)
+(global-set-key (kbd "M-/") 'undo-tree-redo)

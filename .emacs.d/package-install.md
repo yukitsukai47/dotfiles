@@ -1,4 +1,9 @@
-M-x package-install
+M-x package-install flycheck RET
+M-x package-install counsel RET
+M-x package-install company RET
+M-x package-install undo-tree RET
+M-x package-install markdown-mode RET
+
 
 # flycheck
 dependency
@@ -20,6 +25,10 @@ ivy-0.13.4
 dependency
 ```
 ```
+
+# makdown-mode
+
+# undo-tree
 
 # elpy(option)
 dependency
