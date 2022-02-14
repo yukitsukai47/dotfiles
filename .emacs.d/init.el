@@ -136,6 +136,7 @@
 ; company
 (global-company-mode)
 (global-set-key (kbd "C-l") 'company-complete)
+(setq company-require-match 'never)
 (define-key company-active-map (kbd "M-n") 'nil)
 (define-key company-active-map (kbd "M-p") 'nil)
 (define-key company-active-map (kbd "C-n") 'company-select-next)
