@@ -37,6 +37,22 @@
 (set-face-foreground 'font-lock-constant-face "cyan1")
 (set-face-foreground 'font-lock-warning-face "violet")
 
+; Org-mode
+(setq org-startup-truncated nil)
+(setq org-directory "~/PATH/")
+
+;; C-x n (Open note.org)
+(defun show-org-buffer (file)
+  "Show an org-file FILE on the current buffer."
+  (interactive)
+  (if (get-buffer file)
+      (let ((buffer (get-buffer file)))
+        (switch-to-buffer buffer)
+        (message "%s" file))
+    (find-file (concat "~/PATH/" file))))
+(global-set-key (kbd "C-x n") '(lambda () (interactive)
+                                 (show-org-buffer "notes.org")))
+
 ; mac
 (when (eq system-type 'darwin)
   (setq ns-command-modifier (quote meta))
