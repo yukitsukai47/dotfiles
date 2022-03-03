@@ -39,7 +39,7 @@
 
 ; Org-mode
 (setq org-startup-truncated nil)
-(setq org-directory "~/PATH/")
+(setq org-directory "~/Library/Mobile Documents/com~apple~CloudDocs/")
 
 ;; C-x n (Open note.org)
 (defun show-org-buffer (file)
@@ -49,7 +49,7 @@
       (let ((buffer (get-buffer file)))
         (switch-to-buffer buffer)
         (message "%s" file))
-    (find-file (concat "~/PATH/" file))))
+    (find-file (concat "~/Library/Mobile Documents/com~apple~CloudDocs/" file))))
 (global-set-key (kbd "C-x n") '(lambda () (interactive)
                                  (show-org-buffer "notes.org")))
 
@@ -113,7 +113,7 @@
 ;      )
 ;    )
 ;  (setq interprogram-cut-function 'copy-from-linux)
-;  (setq interprogram-paste-function 'paste-to-linux)
+;  (global-set-key(kbd "C-y")'paste-to-linux)
 ;  )
 
 ; package
@@ -151,7 +151,7 @@
 
 ; company
 (global-company-mode)
-(global-set-key (kbd "C-l") 'company-complete)
+(global-set-key (kbd "TAB") 'company-complete)
 (setq company-require-match 'never)
 (define-key company-active-map (kbd "M-n") 'nil)
 (define-key company-active-map (kbd "M-p") 'nil)
