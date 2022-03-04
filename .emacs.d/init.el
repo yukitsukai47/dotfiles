@@ -113,7 +113,7 @@
 ;      )
 ;    )
 ;  (setq interprogram-cut-function 'copy-from-linux)
-;  (setq interprogram-cut-function 'paste-from-linux)
+;  (setq interprogram-paste-function 'paste-from-linux)
 ;  )
 
 ; package
