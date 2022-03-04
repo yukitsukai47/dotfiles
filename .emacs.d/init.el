@@ -113,7 +113,7 @@
 ;      )
 ;    )
 ;  (setq interprogram-cut-function 'copy-from-linux)
-;  (setq interprogram-paste-function 'paste-from-linux)
+;  (global-set-key (kbd "C-S-v") 'paste-to-linux)
 ;  )
 
 ; package
