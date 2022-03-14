@@ -13,7 +13,12 @@
 (setq make-backup-files nil)
 (setq auto-save-default nil)
 (setq-default tab-width 4)
-(setq-default indent-tabs-mode t)
+(setq-default indent-tabs-mode nil)
+(add-hook 'python-mode-hook
+	  '(lambda()
+	     (setq indent-tabs-mode nil)
+	     (setq indent-level 4)
+	     (setq python-indent 4)))
 (menu-bar-mode -1)
 (column-number-mode t)
 (global-linum-mode t)
