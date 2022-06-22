@@ -6,6 +6,8 @@
 (global-set-key (kbd "C-c C-h") 'help-command)
 (global-set-key "\M-n" (kbd "C-u 4 C-n"))
 (global-set-key "\M-p" (kbd "C-u 4 C-p"))
+(global-set-key (kbd "C-S-i") 'indent-region)
+(global-set-key (kbd "C-c a") 'align-regexp)
 
 (setq initial-scratch-message nil)
 (setq inhibit-startup-message t)
@@ -45,6 +47,11 @@
 ; Org-mode
 (setq org-startup-truncated nil)
 (setq org-directory "~/Library/Mobile Documents/com~apple~CloudDocs/")
+
+;(defun all-indent ()
+;     (interactive)
+;     (mark-whole-buffer)
+;     (indent-region (region-beginning)(region-end))
 
 ;; C-x n (Open note.org)
 (defun show-org-buffer (file)
@@ -130,7 +137,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(package-selected-packages '(undo-tree markdown-mode flycheck counsel company)))
+ '(package-selected-packages
+   '(php-mode undo-tree markdown-mode flycheck counsel company)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -156,7 +164,7 @@
 
 ; company
 (global-company-mode)
-(global-set-key (kbd "TAB") 'company-complete)
+(global-set-key (kbd "M-i") 'company-complete)
 (setq company-require-match 'never)
 (define-key company-active-map (kbd "M-n") 'nil)
 (define-key company-active-map (kbd "M-p") 'nil)
