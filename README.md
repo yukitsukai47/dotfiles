@@ -25,7 +25,9 @@ make && make install
 ```
 emacs 27.2 - Linux:  
 ```
-./configure --without-x --with-x-toolkit=no --with-xpm=ifavailable --with-jpeg=ifavailable --with-png=ifavailable --with-gif=ifavailable --with-tiff=ifavailable --with-gnutls=ifavailable --prefix=$HOME/.local
+sudo apt install install libgnutls28-dev
+
+./configure --without-x --with-x-toolkit=no --with-xpm=ifavailable --with-jpeg=ifavailable --with-png=ifavailable --with-gif=ifavailable --with-tiff=ifavailable --with-gnutls=ifavailable --with-pop --with-mailutils --prefix=$HOME/.local
 make && make install
 ```
 
