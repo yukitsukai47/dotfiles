@@ -2,26 +2,9 @@
 (set-language-environment  'utf-8)
 (prefer-coding-system 'utf-8)
 
-(global-set-key (kbd "C-h") 'delete-backward-char)
-(global-set-key (kbd "C-c C-h") 'help-command)
-(global-set-key "\M-n" (kbd "C-u 4 C-n"))
-(global-set-key "\M-p" (kbd "C-u 4 C-p"))
-(global-set-key (kbd "C-S-i") 'indent-region)
-(global-set-key (kbd "C-c a") 'align-regexp)
-
-(setq initial-scratch-message nil)
-(setq inhibit-startup-message t)
-(setq scroll-conservatively 1)
-(setq make-backup-files nil)
-(setq auto-save-default nil)
-(setq-default tab-width 4)
-(setq-default indent-tabs-mode nil)
-(add-hook 'python-mode-hook
-	  '(lambda()
-	     (setq indent-tabs-mode nil)
-	     (setq indent-level 4)
-	     (setq python-indent 4)))
-(menu-bar-mode -1)
+;(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
 (column-number-mode t)
 (global-linum-mode t)
 (set-face-attribute 'linum nil
@@ -44,9 +27,39 @@
 (set-face-foreground 'font-lock-constant-face "cyan1")
 (set-face-foreground 'font-lock-warning-face "violet")
 
+(global-set-key (kbd "C-h") 'delete-backward-char)
+(global-set-key (kbd "C-c C-h") 'help-command)
+(global-unset-key (kbd "C-q"))
+(global-set-key (kbd "C-q -")  'split-window-vertically)
+(global-set-key (kbd "C-q |")  'split-window-horizontally)
+(global-set-key (kbd "C-q x")  'delete-window)
+(global-set-key (kbd "C-q c")  'make-frame-command)
+(global-set-key (kbd "C-q n")  'other-frame)
+(global-set-key (kbd "C-q C-b")  'windmove-left)
+(global-set-key (kbd "C-q C-n")  'windmove-down)
+(global-set-key (kbd "C-q C-p")  'windmove-up)
+(global-set-key (kbd "C-q C-f") 'windmove-right)
+(global-set-key "\M-n" (kbd "C-u 4 C-n"))
+(global-set-key "\M-p" (kbd "C-u 4 C-p"))
+(global-set-key (kbd "C-S-i") 'indent-region)
+(global-set-key (kbd "C-c a") 'align-regexp)
+
+(setq initial-scratch-message nil)
+(setq inhibit-startup-message t)
+(setq scroll-conservatively 1)
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
+(add-hook 'python-mode-hook
+	  '(lambda()
+	     (setq indent-tabs-mode nil)
+	     (setq indent-level 4)
+	     (setq python-indent 4)))
+
 ; Org-mode
-(setq org-startup-truncated nil)
-(setq org-directory "~/Library/Mobile Documents/com~apple~CloudDocs/")
+;(setq org-startup-truncated nil)
+;(setq org-directory "~/Library/Mobile Documents/com~apple~CloudDocs/")
 
 ;(defun all-indent ()
 ;     (interactive)
@@ -54,30 +67,30 @@
 ;     (indent-region (region-beginning)(region-end))
 
 ;; C-x n (Open note.org)
-(defun show-org-buffer (file)
-  "Show an org-file FILE on the current buffer."
-  (interactive)
-  (if (get-buffer file)
-      (let ((buffer (get-buffer file)))
-        (switch-to-buffer buffer)
-        (message "%s" file))
-    (find-file (concat "~/Library/Mobile Documents/com~apple~CloudDocs/" file))))
-(global-set-key (kbd "C-x n") '(lambda () (interactive)
-                                 (show-org-buffer "notes.org")))
+;(defun show-org-buffer (file)
+;  "Show an org-file FILE on the current buffer."
+;  (interactive)
+;  (if (get-buffer file)
+;      (let ((buffer (get-buffer file)))
+;        (switch-to-buffer buffer)
+;        (message "%s" file))
+;    (find-file (concat "~/Library/Mobile Documents/com~apple~CloudDocs/" file))))
+;(global-set-key (kbd "C-x n") '(lambda () (interactive)
+;                                 (show-org-buffer "notes.org")))
 
 ; mac
-(when (eq system-type 'darwin)
-  (setq ns-command-modifier (quote meta))
-  (defun copy-from-darwin ()
-	(shell-command-to-string "pbpaste"))
-  (defun paste-to-darwin (text &optional push)
-	(let ((process-connection-type nil))
-	  (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-		(process-send-string proc text)
-		(process-send-eof proc))))
-  (setq interprogram-cut-function 'paste-to-darwin)
-  (setq interprogram-paste-function 'copy-from-darwin)
-  )
+;(when (eq system-type 'darwin)
+;  (setq ns-command-modifier (quote meta))
+;  (defun copy-from-darwin ()
+;	(shell-command-to-string "pbpaste"))
+;  (defun paste-to-darwin (text &optional push)
+;	(let ((process-connection-type nil))
+;	  (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
+;		(process-send-string proc text)
+;		(process-send-eof proc))))
+;  (setq interprogram-cut-function 'paste-to-darwin)
+;  (setq interprogram-paste-function 'copy-from-darwin)
+;  )
 
 ; wsl
 ;(global-set-key
@@ -137,14 +150,17 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(column-number-mode t)
  '(package-selected-packages
-   '(php-mode undo-tree markdown-mode flycheck counsel company)))
+   '(php-mode undo-tree markdown-mode flycheck counsel company))
+ '(show-paren-mode t)
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(default ((t (:family #("IPAゴシック" 3 7 (charset cp932-2-byte)) :foundry "outline" :slant normal :weight normal :height 120 :width normal)))))
 (package-initialize)
 
 ; ivy
