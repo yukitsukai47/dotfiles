@@ -15,18 +15,6 @@
 (set-face-attribute 'show-paren-match nil
                     :inherit 'highlight)
 
-(set-face-foreground 'default "white")
-(set-face-background 'default "black")
-(set-face-foreground 'font-lock-type-face "green1")
-(set-face-foreground 'font-lock-variable-name-face "white")
-(set-face-foreground 'font-lock-function-name-face "yellow1")
-(set-face-foreground 'font-lock-builtin-face "magenta1")
-(set-face-foreground 'font-lock-keyword-face "cyan1")
-(set-face-foreground 'font-lock-string-face "red1")
-(set-face-foreground 'font-lock-comment-face "green1")
-(set-face-foreground 'font-lock-constant-face "cyan1")
-(set-face-foreground 'font-lock-warning-face "violet")
-
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-c C-h") 'help-command)
 (global-unset-key (kbd "C-q"))
@@ -152,7 +140,7 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(package-selected-packages
-   '(php-mode undo-tree markdown-mode flycheck counsel company))
+   '(modus-vivendi-theme modus-themes php-mode undo-tree markdown-mode flycheck counsel company))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -193,3 +181,20 @@
 ; undo-tree
 (global-undo-tree-mode)
 (global-set-key (kbd "M-/") 'undo-tree-redo)
+
+; modus-themes
+(modus-themes-load-themes)
+(modus-themes-load-vivendi)
+
+; custom-themes
+;(set-face-foreground 'default "white")
+;(set-face-background 'default "black")
+;(set-face-foreground 'font-lock-type-face "green1")
+;(set-face-foreground 'font-lock-variable-name-face "white")
+;(set-face-foreground 'font-lock-function-name-face "yellow1")
+;(set-face-foreground 'font-lock-builtin-face "magenta1")
+;(set-face-foreground 'font-lock-keyword-face "cyan1")
+;(set-face-foreground 'font-lock-string-face "red1")
+;(set-face-foreground 'font-lock-comment-face "green1")
+;(set-face-foreground 'font-lock-constant-face "cyan1")
+;(set-face-foreground 'font-lock-warning-face "violet")
