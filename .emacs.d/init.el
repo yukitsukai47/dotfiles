@@ -8,8 +8,8 @@
 (column-number-mode t)
 (global-linum-mode t)
 (set-face-attribute 'linum nil
-					:foreground "yellow1"
-					:height 0.9)
+;					:foreground "yellow1"
+					:height 0.6)
 (show-paren-mode t)
 (set-face-background 'show-paren-match nil)
 (set-face-attribute 'show-paren-match nil
@@ -44,6 +44,18 @@
 	     (setq indent-tabs-mode nil)
 	     (setq indent-level 4)
 	     (setq python-indent 4)))
+
+(setq initial-major-mode 'text-mode)
+(global-set-key (kbd "C-S-t") 'text-mode)
+(add-hook 'text-mode-hook
+          '(lambda()
+             (highlight-lines-matching-regexp "■" 'hi-pink)
+             (highlight-lines-matching-regexp "▼" 'hi-yellow)
+             (highlight-lines-matching-regexp "▲" 'hi-green)
+             (highlight-lines-matching-regexp "◆" 'hi-blue)
+             (highlight-lines-matching-regexp "★" 'hi-aquamarine)
+             (highlight-lines-matching-regexp "〇" 'hi-black-hb)
+             (highlight-lines-matching-regexp "◎" 'hi-red-b)))
 
 ; Org-mode
 ;(setq org-startup-truncated nil)
@@ -148,7 +160,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(default ((t (:family #("IPAゴシック" 3 7 (charset cp932-2-byte)) :foundry "outline" :slant normal :weight normal :height 120 :width normal)))))
+ '(default ((t (:family #("IPA Pゴシック" 5 9 (charset cp932-2-byte)) :foundry "outline" :slant normal :weight normal :height 120 :width normal)))))
 (package-initialize)
 
 ; ivy
