@@ -1,0 +1,128 @@
+cd Roaming/
+cd .emacs.d/
+ls
+ls
+cd site-lisp/
+ls
+cd emacs-application-framework/
+ls
+README.zh-CN.md     eaf.el             gnome-shell    sync-eaf-relssources.py
+ls
+./install-eaf.py
+ls
+rm init.elc
+ls
+cd ../../
+cd Users/
+cd ey7heath/
+ls
+ls -l
+mkdir projects
+cd projects/
+ls
+rustc main.rs
+rustc main.rs
+ls
+main.exe
+rustc main.rs
+main.exe
+ls
+clear
+clear
+clear
+ls
+main.exe
+ls
+cargo --version
+cargo new hello_cargo
+ls
+cd hello_cargo/
+ls
+cargo build
+ls
+cd target
+ls
+ls
+cd debug/
+ls
+hello_cargo.exe
+hello_cargo.exe
+cargo run
+cargo run
+cargo build --release
+cd ../
+ls
+cd release/
+ls
+hello_cargo.exe
+cd ../
+cd ../
+ls
+cargo new gussing_game
+cd gussing_game/
+ls
+ls
+cd ../
+rm -rf gussing_game/
+cd ../
+cargo new guessing_game
+cd guessing_game/
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+cargo check
+cargo run
+cargo run
+cargo doc --open
+cargo run
+cd ../
+ls
+cd target/
+ls
+cd debug/
+main.exe
+ls
+cd build/
+cd ../
+guessing_game.exe
+cd ../../
+cargo doc -open
+cargo doc --open
+cargo run
+cargo doc --open
+cargo run
+cargo run
+cargo run
+cd ../
+ls
+cargo new netcat
+cd netcat/
+ls
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+74 ~     }?)
+|
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+cargo run
+ls
+cd ../
+ls
+cd docker
+ls

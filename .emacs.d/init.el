@@ -1,22 +1,34 @@
+;; language
 (set-language-environment 'Japanese)
 (set-language-environment  'utf-8)
 (prefer-coding-system 'utf-8)
 
-;(menu-bar-mode -1)
+;; Settings
+(global-linum-mode t)
+(column-number-mode t)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
-(column-number-mode t)
-(global-linum-mode t)
 (set-face-attribute 'linum nil
-;					:foreground "yellow1"
 					:height 0.6)
 (show-paren-mode t)
 (set-face-background 'show-paren-match nil)
 (set-face-attribute 'show-paren-match nil
                     :inherit 'highlight)
+(setq initial-scratch-message nil)
+(setq inhibit-startup-message t)
+(setq scroll-conservatively 1)
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq-default tab-width 4)
+(setq-default indent-tabs-mode nil)
+(setq default-directory "C:/Users/ey7heath/Desktop")
 
+;; Keybinding
 (global-set-key (kbd "C-h") 'delete-backward-char)
 (global-set-key (kbd "C-c C-h") 'help-command)
+(global-set-key (kbd "C-z") 'eshell)
+
+;;; Window management
 (global-unset-key (kbd "C-q"))
 (global-set-key (kbd "C-q -")  'split-window-vertically)
 (global-set-key (kbd "C-q |")  'split-window-horizontally)
@@ -27,78 +39,39 @@
 (global-set-key (kbd "C-q C-n")  'windmove-down)
 (global-set-key (kbd "C-q C-p")  'windmove-up)
 (global-set-key (kbd "C-q C-f") 'windmove-right)
-(global-set-key "\M-n" (kbd "C-u 4 C-n"))
-(global-set-key "\M-p" (kbd "C-u 4 C-p"))
+(global-set-key (kbd "C-q N")  'enlarge-window)
+(global-set-key (kbd "C-q F") 'enlarge-window-horizontally)
+(global-set-key (kbd "C-q B") 'shrink-window-horizontally)
+(global-set-key (kbd "C-.")  'repeat)
+
+;;; Code formatting
 (global-set-key (kbd "C-S-i") 'indent-region)
 (global-set-key (kbd "C-c a") 'align-regexp)
 
-(setq initial-scratch-message nil)
-(setq inhibit-startup-message t)
-(setq scroll-conservatively 1)
-(setq make-backup-files nil)
-(setq auto-save-default nil)
-(setq-default tab-width 4)
-(setq-default indent-tabs-mode nil)
-(add-hook 'python-mode-hook
-	  '(lambda()
-	     (setq indent-tabs-mode nil)
-	     (setq indent-level 4)
-	     (setq python-indent 4)))
-
+;; Text mode
 (setq initial-major-mode 'text-mode)
-(global-set-key (kbd "C-S-t") 'text-mode)
+(global-set-key (kbd "C-M-t") 'text-mode)
+(global-set-key "\M-[" (kbd "◆◆◆◆ 2023/02/02  岸本 ◆◆◆◆"))
+(global-set-key "\M-]" (kbd "◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆◆"))
+(global-set-key "\M-1" (kbd "■"))
+(global-set-key "\M-2" (kbd "▼"))
+(global-set-key "\M-3" (kbd "★"))
+(global-set-key "\M-4" (kbd "◎"))
+(global-set-key "\M-5" (kbd "※"))
 (add-hook 'text-mode-hook
           '(lambda()
              (highlight-lines-matching-regexp "■" 'hi-pink)
              (highlight-lines-matching-regexp "▼" 'hi-yellow)
-             (highlight-lines-matching-regexp "▲" 'hi-green)
-             (highlight-lines-matching-regexp "◆" 'hi-blue)
              (highlight-lines-matching-regexp "★" 'hi-aquamarine)
-             (highlight-lines-matching-regexp "〇" 'hi-black-hb)
-             (highlight-lines-matching-regexp "◎" 'hi-red-b)))
+             (highlight-lines-matching-regexp "◎" 'hi-red-b)
+             (highlight-lines-matching-regexp "※" 'hi-green)
+             (highlight-lines-matching-regexp "◆" 'hi-blue)
+             (highlight-lines-matching-regexp "〇" 'hi-black-hb)))
 
-; Org-mode
-;(setq org-startup-truncated nil)
-;(setq org-directory "~/Library/Mobile Documents/com~apple~CloudDocs/")
 
-;(defun all-indent ()
-;     (interactive)
-;     (mark-whole-buffer)
-;     (indent-region (region-beginning)(region-end))
-
-;; C-x n (Open note.org)
-;(defun show-org-buffer (file)
-;  "Show an org-file FILE on the current buffer."
-;  (interactive)
-;  (if (get-buffer file)
-;      (let ((buffer (get-buffer file)))
-;        (switch-to-buffer buffer)
-;        (message "%s" file))
-;    (find-file (concat "~/Library/Mobile Documents/com~apple~CloudDocs/" file))))
-;(global-set-key (kbd "C-x n") '(lambda () (interactive)
-;                                 (show-org-buffer "notes.org")))
-
-; mac
-;(when (eq system-type 'darwin)
-;  (setq ns-command-modifier (quote meta))
-;  (defun copy-from-darwin ()
-;	(shell-command-to-string "pbpaste"))
-;  (defun paste-to-darwin (text &optional push)
-;	(let ((process-connection-type nil))
-;	  (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-;		(process-send-string proc text)
-;		(process-send-eof proc))))
-;  (setq interprogram-cut-function 'paste-to-darwin)
-;  (setq interprogram-paste-function 'copy-from-darwin)
-;  )
-
-; wsl
-;(global-set-key
-; (kbd "C-c C-c")
-; 'wsl-copy)
-;(global-set-key
-; (kbd "C-c C-v")
-; 'wsl-paste)
+;; WSL
+;(global-set-key (kbd "C-c C-c") 'wsl-copy)
+;(global-set-key (kbd "C-c C-v") 'wsl-paste)
 ;(defun wsl-copy (start end)
 ;  (interactive "r")
 ;  (shell-command-on-region start end "clip.exe")
@@ -111,7 +84,7 @@
 ;    (setq clipboard (substring clipboard 0 -1))
 ;    (insert clipboard)))
 
-; linux
+;; Linux
 ;(when (eq system-type 'gnu/linux)
 ;  (defun copy-from-linux (text &optional push)
 ;    (interactive)
@@ -152,7 +125,7 @@
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
  '(package-selected-packages
-   '(modus-vivendi-theme modus-themes php-mode undo-tree markdown-mode flycheck counsel company))
+   '(lsp-ui lsp-mode flycheck-rust rust-mode python-mode yasnippet-classic-snippets csharp-mode modus-vivendi-theme modus-themes php-mode undo-tree markdown-mode flycheck counsel company))
  '(show-paren-mode t)
  '(tool-bar-mode nil))
 (custom-set-faces
@@ -198,15 +171,17 @@
 (modus-themes-load-themes)
 (modus-themes-load-vivendi)
 
-; custom-themes
-;(set-face-foreground 'default "white")
-;(set-face-background 'default "black")
-;(set-face-foreground 'font-lock-type-face "green1")
-;(set-face-foreground 'font-lock-variable-name-face "white")
-;(set-face-foreground 'font-lock-function-name-face "yellow1")
-;(set-face-foreground 'font-lock-builtin-face "magenta1")
-;(set-face-foreground 'font-lock-keyword-face "cyan1")
-;(set-face-foreground 'font-lock-string-face "red1")
-;(set-face-foreground 'font-lock-comment-face "green1")
-;(set-face-foreground 'font-lock-constant-face "cyan1")
-;(set-face-foreground 'font-lock-warning-face "violet")
+; Rust-mode
+(require 'rust-mode)
+(add-hook 'rust-mode-hook (lambda ()
+                             (flycheck-rust-setup)
+                             (flycheck-mode)
+                             (lsp-deferred)))
+
+;; Python-mode
+(require 'python-mode)
+(add-hook 'python-mode-hook
+	      '(lambda()
+	         (setq indent-tabs-mode nil)
+	         (setq indent-level 4)
+	         (setq python-indent 4)))
