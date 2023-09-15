@@ -21,7 +21,7 @@
 (setq auto-save-default nil)
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
-(setq default-directory "C:/Users/ey7heath/Desktop")
+(setq default-directory "C:/Users/kkishimoto/Desktop")
 
 ;; Keybinding
 (global-set-key (kbd "C-h") 'delete-backward-char)
@@ -43,6 +43,8 @@
 (global-set-key (kbd "C-q F") 'enlarge-window-horizontally)
 (global-set-key (kbd "C-q B") 'shrink-window-horizontally)
 (global-set-key (kbd "C-.")  'repeat)
+(global-set-key "\M-n" (kbd "C-u 4 C-n"))
+(global-set-key "\M-p" (kbd "C-u 4 C-p"))
 
 ;;; Code formatting
 (global-set-key (kbd "C-S-i") 'indent-region)
@@ -57,17 +59,19 @@
 (global-set-key "\M-2" (kbd "▼"))
 (global-set-key "\M-3" (kbd "★"))
 (global-set-key "\M-4" (kbd "◎"))
-(global-set-key "\M-5" (kbd "※"))
+(global-set-key "\M-5" (kbd "〇"))
+(global-set-key "\M-6" (kbd "※"))
+(global-set-key "\M-7" (kbd "◆"))
 (add-hook 'text-mode-hook
           '(lambda()
              (highlight-lines-matching-regexp "■" 'hi-pink)
              (highlight-lines-matching-regexp "▼" 'hi-yellow)
              (highlight-lines-matching-regexp "★" 'hi-aquamarine)
              (highlight-lines-matching-regexp "◎" 'hi-red-b)
-             (highlight-lines-matching-regexp "※" 'hi-green)
+             (highlight-lines-matching-regexp "〇" 'hi-black-b)
              (highlight-lines-matching-regexp "◆" 'hi-blue)
-             (highlight-lines-matching-regexp "〇" 'hi-black-hb)))
-
+             (highlight-lines-matching-regexp "※" 'hi-green)
+             (highlight-lines-matching-regexp "◆" 'hi-blue)))
 
 ;; WSL
 ;(global-set-key (kbd "C-c C-c") 'wsl-copy)
@@ -169,19 +173,24 @@
 
 ; modus-themes
 (modus-themes-load-themes)
-(modus-themes-load-vivendi)
+;(modus-themes-load-vivendi)
 
 ; Rust-mode
-(require 'rust-mode)
-(add-hook 'rust-mode-hook (lambda ()
-                             (flycheck-rust-setup)
-                             (flycheck-mode)
-                             (lsp-deferred)))
+;(require 'rust-mode)
+;(add-hook 'rust-mode-hook (lambda ()
+;                             (flycheck-rust-setup)
+;                             (flycheck-mode)
+;                             (lsp-deferred)))
 
-;; Python-mode
+; Python-mode
 (require 'python-mode)
 (add-hook 'python-mode-hook
 	      '(lambda()
 	         (setq indent-tabs-mode nil)
 	         (setq indent-level 4)
 	         (setq python-indent 4)))
+
+; Emacs Server Start for Windows
+(when (eq window-system 'w32)
+  (when (require 'server nil t)
+    (server-start)))
